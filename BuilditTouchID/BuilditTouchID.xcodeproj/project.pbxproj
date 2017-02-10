@@ -167,7 +167,7 @@
 				TargetAttributes = {
 					B9D5DAA51E4DDDE300298A2E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5AZ4ZVE4HD;
+						DevelopmentTeam = QX2M8PE6QE;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -381,7 +381,7 @@
 			baseConfigurationReference = 27D886E04401D2601C4989E6 /* Pods-BuilditTouchID.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZ4ZVE4HD;
+				DEVELOPMENT_TEAM = QX2M8PE6QE;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildit.BuilditTouchID;
@@ -394,7 +394,7 @@
 			baseConfigurationReference = FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZ4ZVE4HD;
+				DEVELOPMENT_TEAM = QX2M8PE6QE;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildit.BuilditTouchID;
