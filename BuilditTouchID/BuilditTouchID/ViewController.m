@@ -38,38 +38,24 @@
     NSString *myLocalizedReasonString = @"Used for quick and secure access to the test app";
     
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        
         [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                   localizedReason:myLocalizedReasonString
                             reply:^(BOOL success, NSError *error) {
+                                
                                 if (success) {
-                                    // User authenticated successfully, take appropriate action
+                                    
                                     [self.api postSuccessFingerprintWithHash:@"hashthing" success:^(id object) {
-                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door open" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                                        [alert addAction:action];
-                                        
-                                        [self presentViewController:alert animated:YES completion:nil];
+                                        [self alertMessage:@"Door open 👯"];
                                     } failure:^(NSError *error) {
-                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: we don't know who you are" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                                        [alert addAction:action];
-
-                                        
-                                        [self presentViewController:alert animated:YES completion:nil];
+                                        [self alertMessage:@"Door not open: we don't know who you are 😤"];
                                     }];
                                 } else {
+                                    
                                     [self.api postFailureFingerprintWithSuccess:^(id object) {
-                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: can't recognize your finger" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                                        [alert addAction:action];
-
-                                        [self presentViewController:alert animated:YES completion:nil];
+                                        [self alertMessage:@"Door not open: can't recognize your finger 😦"];
                                     } failure:^(NSError *error) {
-                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: can't recognize your finger" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                                        [alert addAction:action];
-
-                                        [self presentViewController:alert animated:YES completion:nil];
+                                        [self alertMessage:@"Door not open: can't recognize your finger 😦"];
                                     }];
                                 }
                             }];
@@ -78,5 +64,14 @@
     }
 }
 
+#pragma mark - UI helpers
+- (void)alertMessage:(NSString*)message {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end
