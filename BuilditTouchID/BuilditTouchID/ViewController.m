@@ -74,7 +74,7 @@
                                 if (success) {
                                     
                                     [self.api postSuccessFingerprintWithHash:self.hashKey success:^(id object) {
-                                        [self alertMessage:@"Door open 👯"];
+                                        [self alertMessage:@"Door will open 👯"];
                                     } failure:^(NSError *error) {
                                         [self alertMessage:@"Door not open: we don't know who you are 😤"];
                                     }];
@@ -93,10 +93,16 @@
 }
 
 - (IBAction)microphoneTapped:(id)sender {
-//    
-//    [self.api postSuccessVoiceWithHash:self.hash success:^(id object) {
-//        
-//    } failure:];
+    
+    [self.api postSuccessVoiceWithHash:self.hashKey success:^(id object) {
+        [self.api postSuccessFingerprintWithHash:self.hashKey success:^(id object) {
+            [self alertMessage:@"Door will open 👯"];
+        } failure:^(NSError *error) {
+            [self alertMessage:@"Door not open: we don't know who you are 😤"];
+        }];
+    } failure:^(NSError *error) {
+        [self alertMessage:@"Door not open: can't recognize your voice 😦"];
+    }];
 }
 
 #pragma mark - UI helpers
