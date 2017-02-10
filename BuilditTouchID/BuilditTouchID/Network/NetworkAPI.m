@@ -32,7 +32,8 @@
 
 - (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure {
     
-    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/fingerprint/%@", [IPHandler IP], hash];
+    NSString *escapedHash = [hash stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/fingerprint/%@", [IPHandler IP], escapedHash];
     [self.manager POST:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
