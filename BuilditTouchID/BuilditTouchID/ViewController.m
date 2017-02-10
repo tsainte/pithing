@@ -8,16 +8,21 @@
 
 #import "ViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
+#import "NetworkAPI.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) NetworkAPI *api;
 
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.api = [NetworkAPI new];
 }
 
 
@@ -33,13 +38,25 @@
     NSString *myLocalizedReasonString = @"Used for quick and secure access to the test app";
     
     if ([myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        
         [myContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                   localizedReason:myLocalizedReasonString
                             reply:^(BOOL success, NSError *error) {
+                                
                                 if (success) {
-                                    // User authenticated successfully, take appropriate action
+                                    
+                                    [self.api postSuccessFingerprintWithHash:@"hashthing" success:^(id object) {
+                                        [self alertMessage:@"Door open 👯"];
+                                    } failure:^(NSError *error) {
+                                        [self alertMessage:@"Door not open: we don't know who you are 😤"];
+                                    }];
                                 } else {
-                                    // User did not authenticate successfully, look at error and take appropriate action
+                                    
+                                    [self.api postFailureFingerprintWithSuccess:^(id object) {
+                                        [self alertMessage:@"Door not open: can't recognize your finger 😦"];
+                                    } failure:^(NSError *error) {
+                                        [self alertMessage:@"Door not open: can't recognize your finger 😦"];
+                                    }];
                                 }
                             }];
     } else {
@@ -47,5 +64,14 @@
     }
 }
 
+#pragma mark - UI helpers
+- (void)alertMessage:(NSString*)message {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end
