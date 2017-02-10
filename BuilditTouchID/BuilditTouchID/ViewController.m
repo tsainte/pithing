@@ -69,8 +69,9 @@
                             reply:^(BOOL success, NSError *error) {
                                 
                                 if (success) {
+                                    NSString *deviceName = [[UIDevice currentDevice] name];
                                     
-                                    [self.api postSuccessFingerprintWithHash:[[UIDevice currentDevice] name] success:^(id object) {
+                                    [self.api postSuccessFingerprintWithHash:deviceName success:^(id object) {
                                         [self alertMessage:@"Door open 👯"];
                                     } failure:^(NSError *error) {
                                         [self alertMessage:@"Door not open: we don't know who you are 😤"];
