@@ -9,8 +9,6 @@
 #import "NetworkAPI.h"
 #import <AFNetworking/AFNetworking.h>
 
-NSString const *serverAddress = @"http://10.0.1.107:3000";
-
 @interface NetworkAPI()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -34,7 +32,7 @@ NSString const *serverAddress = @"http://10.0.1.107:3000";
 
 - (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure {
     
-    NSString *path = [NSString stringWithFormat:@"%@/api/auth/fingerprint/%@", serverAddress, hash];
+    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/fingerprint/%@", [IPHandler IP], hash];
     [self.manager POST:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);
@@ -46,7 +44,7 @@ NSString const *serverAddress = @"http://10.0.1.107:3000";
 
 - (void)postFailureFingerprintWithSuccess:(successResponse)success failure:(failureResponse)failure {
     
-    NSString *path = [NSString stringWithFormat:@"%@/api/auth/fingerprint", serverAddress];
+    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/fingerprint", [IPHandler IP]];
     [self.manager POST:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         success(responseObject);

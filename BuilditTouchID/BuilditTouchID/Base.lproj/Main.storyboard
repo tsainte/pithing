@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,11 +33,11 @@
                                     <navigationItem title="Touch ID" id="WN0-aX-lRw"/>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchid_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Yuj-tC-B75">
-                                <rect key="frame" x="145" y="113" width="84" height="84"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1024" translatesAutoresizingMaskIntoConstraints="NO" id="Yuj-tC-B75">
+                                <rect key="frame" x="127" y="113" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="4yo-uR-C5W"/>
-                                    <constraint firstAttribute="width" constant="84" id="W82-Sj-NSe"/>
+                                    <constraint firstAttribute="height" constant="120" id="4yo-uR-C5W"/>
+                                    <constraint firstAttribute="width" constant="120" id="W82-Sj-NSe"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your fingertips to authenticate into our systems" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-EE-wNL">
@@ -60,12 +60,21 @@
                                     <action selector="btnTouchIDPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="FA4-lF-auR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1n-Co-WnE">
+                                <rect key="frame" x="265" y="631" width="94" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="10.0.1.107:3000"/>
+                                <connections>
+                                    <action selector="configureIP:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JdJ-bJ-Iqk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dm5-iX-Sc8" firstAttribute="centerX" secondItem="bcK-EE-wNL" secondAttribute="centerX" id="67u-Ej-hHe"/>
                             <constraint firstItem="Yuj-tC-B75" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="93" id="Fbv-55-9dx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HEY-Gg-vKB" secondAttribute="trailing" constant="-16" id="GbP-RT-V9Q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A1n-Co-WnE" secondAttribute="bottom" constant="8" id="Pu8-Si-tdV"/>
                             <constraint firstItem="bcK-EE-wNL" firstAttribute="centerX" secondItem="Yuj-tC-B75" secondAttribute="centerX" constant="7" id="TEI-p9-5VD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bcK-EE-wNL" secondAttribute="trailing" constant="18" id="baU-lR-lPv"/>
                             <constraint firstItem="HEY-Gg-vKB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cMQ-xv-QHW"/>
@@ -73,9 +82,13 @@
                             <constraint firstItem="HEY-Gg-vKB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jJh-1i-0eq"/>
                             <constraint firstItem="dm5-iX-Sc8" firstAttribute="top" secondItem="bcK-EE-wNL" secondAttribute="bottom" constant="109" id="mAP-hA-4Bl"/>
                             <constraint firstItem="bcK-EE-wNL" firstAttribute="top" secondItem="Yuj-tC-B75" secondAttribute="top" constant="146" id="ncl-ov-dPx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A1n-Co-WnE" secondAttribute="trailing" id="nx4-R8-PZU"/>
                             <constraint firstItem="bcK-EE-wNL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="xHO-dW-4ln"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ipButton" destination="A1n-Co-WnE" id="Yu4-uh-YJ7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,6 +96,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="touchid_icon" width="107" height="107"/>
+        <image name="icon1024" width="1024" height="1024"/>
     </resources>
 </document>

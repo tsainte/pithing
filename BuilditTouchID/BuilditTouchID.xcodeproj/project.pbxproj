@@ -15,6 +15,7 @@
 		B9D5DAB61E4DDDE300298A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D5DAB51E4DDDE300298A2E /* Assets.xcassets */; };
 		B9D5DAB91E4DDDE300298A2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D5DAB71E4DDDE300298A2E /* LaunchScreen.storyboard */; };
 		BBA703251E4DE40100FA9D99 /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA703241E4DE40100FA9D99 /* NetworkAPI.m */; };
+		BBA703291E4E0A1100FA9D99 /* IPHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA703281E4E0A1100FA9D99 /* IPHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		B9D5DABA1E4DDDE300298A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA703231E4DE40100FA9D99 /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkAPI.h; path = Network/NetworkAPI.h; sourceTree = "<group>"; };
 		BBA703241E4DE40100FA9D99 /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkAPI.m; path = Network/NetworkAPI.m; sourceTree = "<group>"; };
+		BBA703271E4E0A1100FA9D99 /* IPHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPHandler.h; path = Model/IPHandler.h; sourceTree = "<group>"; };
+		BBA703281E4E0A1100FA9D99 /* IPHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPHandler.m; path = Model/IPHandler.m; sourceTree = "<group>"; };
 		FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuilditTouchID.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuilditTouchID/Pods-BuilditTouchID.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +88,7 @@
 		B9D5DAA81E4DDDE300298A2E /* BuilditTouchID */ = {
 			isa = PBXGroup;
 			children = (
+				BBA703261E4E09F800FA9D99 /* Model */,
 				BBA703221E4DE3AA00FA9D99 /* Network */,
 				B9D5DAAC1E4DDDE300298A2E /* AppDelegate.h */,
 				B9D5DAAD1E4DDDE300298A2E /* AppDelegate.m */,
@@ -114,6 +118,15 @@
 				BBA703241E4DE40100FA9D99 /* NetworkAPI.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		BBA703261E4E09F800FA9D99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBA703271E4E0A1100FA9D99 /* IPHandler.h */,
+				BBA703281E4E0A1100FA9D99 /* IPHandler.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +163,7 @@
 				TargetAttributes = {
 					B9D5DAA51E4DDDE300298A2E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5AZ4ZVE4HD;
+						DevelopmentTeam = QX2M8PE6QE;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -243,6 +256,7 @@
 				B9D5DAAE1E4DDDE300298A2E /* AppDelegate.m in Sources */,
 				B9D5DAAB1E4DDDE300298A2E /* main.m in Sources */,
 				BBA703251E4DE40100FA9D99 /* NetworkAPI.m in Sources */,
+				BBA703291E4E0A1100FA9D99 /* IPHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +377,7 @@
 			baseConfigurationReference = 27D886E04401D2601C4989E6 /* Pods-BuilditTouchID.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZ4ZVE4HD;
+				DEVELOPMENT_TEAM = QX2M8PE6QE;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildit.BuilditTouchID;
@@ -376,7 +390,7 @@
 			baseConfigurationReference = FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5AZ4ZVE4HD;
+				DEVELOPMENT_TEAM = QX2M8PE6QE;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildit.BuilditTouchID;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IPHandler.h"
 
 typedef void(^successResponse)(id object);
 typedef void(^failureResponse)(NSError *error);

@@ -23,12 +23,37 @@
     [super viewDidLoad];
     
     self.api = [NetworkAPI new];
+    [self refreshIPButtonTitle];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)configureIP:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Setting new address" message:@"Please enter your new IP and port" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = [IPHandler IP];
+    }];
+    
+    UIAlertAction *nevermindAction = [UIAlertAction actionWithTitle:@"Nevermind" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:nevermindAction];
+    
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        UITextField *ipTextfield = [alert.textFields firstObject];
+        NSString *ip = [ipTextfield text];
+        
+        [IPHandler setIP:ip];
+        [self refreshIPButtonTitle];
+    }];
+    [alert addAction:doneAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction) btnTouchIDPressed
@@ -65,6 +90,7 @@
 }
 
 #pragma mark - UI helpers
+
 - (void)alertMessage:(NSString*)message {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -72,6 +98,11 @@
     [alert addAction:action];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)refreshIPButtonTitle {
+    
+    [self.ipButton setTitle:[IPHandler IP] forState:UIControlStateNormal];
 }
 
 @end
