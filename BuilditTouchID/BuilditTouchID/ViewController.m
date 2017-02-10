@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "NetworkAPI.h"
+#import <SpeechKit/SpeechKit.h>
 
 @interface ViewController ()
 
