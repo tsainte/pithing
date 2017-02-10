@@ -14,7 +14,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NetworkAPI *api;
-@property (nonatomic, strong) NSString *hash;
+@property (nonatomic, strong) NSString *hashKey;
 
 @end
 
@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     self.api = [NetworkAPI new];
-    self.hash = [[UIDevice currentDevice] name];
+    self.hashKey = [[UIDevice currentDevice] name];
     [self refreshIPButtonTitle];
 }
 
@@ -73,7 +73,7 @@
                                 
                                 if (success) {
                                     
-                                    [self.api postSuccessFingerprintWithHash:self.hash success:^(id object) {
+                                    [self.api postSuccessFingerprintWithHash:self.hashKey success:^(id object) {
                                         [self alertMessage:@"Door open 👯"];
                                     } failure:^(NSError *error) {
                                         [self alertMessage:@"Door not open: we don't know who you are 😤"];
