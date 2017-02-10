@@ -8,16 +8,21 @@
 
 #import "ViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
+#import "NetworkAPI.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) NetworkAPI *api;
 
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.api = [NetworkAPI new];
 }
 
 
@@ -38,8 +43,34 @@
                             reply:^(BOOL success, NSError *error) {
                                 if (success) {
                                     // User authenticated successfully, take appropriate action
+                                    [self.api postSuccessFingerprintWithHash:@"hashthing" success:^(id object) {
+                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door open" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                        [alert addAction:action];
+                                        
+                                        [self presentViewController:alert animated:YES completion:nil];
+                                    } failure:^(NSError *error) {
+                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: we don't know who you are" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                        [alert addAction:action];
+
+                                        
+                                        [self presentViewController:alert animated:YES completion:nil];
+                                    }];
                                 } else {
-                                    // User did not authenticate successfully, look at error and take appropriate action
+                                    [self.api postFailureFingerprintWithSuccess:^(id object) {
+                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: can't recognize your finger" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                        [alert addAction:action];
+
+                                        [self presentViewController:alert animated:YES completion:nil];
+                                    } failure:^(NSError *error) {
+                                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Door not open: can't recognize your finger" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                        [alert addAction:action];
+
+                                        [self presentViewController:alert animated:YES completion:nil];
+                                    }];
                                 }
                             }];
     } else {

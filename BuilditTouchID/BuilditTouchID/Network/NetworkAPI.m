@@ -15,6 +15,8 @@ NSString const *serverAddress = @"http://192.168.0.1:8080";
 
 - (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure {
     
+    success(nil);
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
@@ -28,6 +30,8 @@ NSString const *serverAddress = @"http://192.168.0.1:8080";
 }
 
 - (void)postFailureFingerprintWithSuccess:(successResponse)success failure:(failureResponse)failure {
+    
+     success(nil);
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
