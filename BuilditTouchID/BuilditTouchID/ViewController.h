@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *ipButton;
 
+- (IBAction)microphoneTapped:(id)sender;
+
 @end
 

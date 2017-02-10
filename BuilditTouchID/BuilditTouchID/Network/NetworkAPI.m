@@ -28,7 +28,7 @@
     return _manager;
 }
 
-#pragma mark - endpoints
+#pragma mark - fingerprints
 
 - (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure {
     
@@ -54,5 +54,33 @@
         failure(error);
     }];
 }
+
+#pragma mark - voice
+
+- (void)postSuccessVoiceWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure {
+    
+    NSString *escapedHash = [hash stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/voice/%@", [IPHandler IP], escapedHash];
+    [self.manager POST:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        failure(error);
+    }];
+}
+
+- (void)postFailureVoiceWithSuccess:(successResponse)success failure:(failureResponse)failure {
+    
+    NSString *path = [NSString stringWithFormat:@"http://%@/api/auth/voice", [IPHandler IP]];
+    [self.manager POST:path parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        failure(error);
+    }];
+}
+
 
 @end

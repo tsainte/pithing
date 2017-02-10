@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Typ1451-Medium.ttf">
-            <string>Typ1451-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -33,27 +29,13 @@
                                     <navigationItem title="Touch ID" id="WN0-aX-lRw"/>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1024" translatesAutoresizingMaskIntoConstraints="NO" id="Yuj-tC-B75">
-                                <rect key="frame" x="127" y="113" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm5-iX-Sc8">
+                                <rect key="frame" x="127" y="103" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="4yo-uR-C5W"/>
-                                    <constraint firstAttribute="width" constant="120" id="W82-Sj-NSe"/>
+                                    <constraint firstAttribute="width" secondItem="dm5-iX-Sc8" secondAttribute="height" multiplier="1:1" id="UJf-aM-PmC"/>
+                                    <constraint firstAttribute="width" constant="120" id="ow9-wj-vkK"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your fingertips to authenticate into our systems" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcK-EE-wNL">
-                                <rect key="frame" x="47" y="259" width="294" height="40"/>
-                                <fontDescription key="fontDescription" name="Typ1451-Medium" family="Typ1451-Medium" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm5-iX-Sc8">
-                                <rect key="frame" x="129" y="408" width="131" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="1Eb-Fu-WBF"/>
-                                    <constraint firstAttribute="height" constant="60" id="acw-gM-N8g"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="ebI-5d-b6v"/>
-                                </constraints>
-                                <state key="normal" title="Enable Touch ID">
+                                <state key="normal" title="Enable Touch ID" image="icon1024">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -75,26 +57,31 @@
                                     <constraint firstAttribute="height" constant="41" id="quH-n0-gjm"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-Tl-zX6">
+                                <rect key="frame" x="127" y="297" width="120" height="120"/>
+                                <state key="normal" title="Button" image="microphone"/>
+                                <connections>
+                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eam-zt-j5K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yUS-KE-t6D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="1Bx-Up-WUu"/>
-                            <constraint firstItem="dm5-iX-Sc8" firstAttribute="centerX" secondItem="bcK-EE-wNL" secondAttribute="centerX" id="67u-Ej-hHe"/>
+                            <constraint firstItem="dm5-iX-Sc8" firstAttribute="top" secondItem="HEY-Gg-vKB" secondAttribute="bottom" constant="39" id="4OK-LL-w8g"/>
+                            <constraint firstItem="pOQ-Tl-zX6" firstAttribute="centerX" secondItem="dm5-iX-Sc8" secondAttribute="centerX" id="4bo-G2-XKu"/>
                             <constraint firstItem="yUS-KE-t6D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="BFw-nJ-Ine"/>
-                            <constraint firstItem="Yuj-tC-B75" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="93" id="Fbv-55-9dx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HEY-Gg-vKB" secondAttribute="trailing" constant="-16" id="GbP-RT-V9Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yUS-KE-t6D" secondAttribute="trailing" constant="-16" id="I7f-48-zti"/>
+                            <constraint firstItem="dm5-iX-Sc8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IXg-J7-fpp"/>
+                            <constraint firstItem="pOQ-Tl-zX6" firstAttribute="width" secondItem="dm5-iX-Sc8" secondAttribute="width" id="Lwt-lt-HVa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A1n-Co-WnE" secondAttribute="bottom" constant="8" id="Pu8-Si-tdV"/>
-                            <constraint firstItem="bcK-EE-wNL" firstAttribute="centerX" secondItem="Yuj-tC-B75" secondAttribute="centerX" constant="7" id="TEI-p9-5VD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bcK-EE-wNL" secondAttribute="trailing" constant="18" id="baU-lR-lPv"/>
                             <constraint firstItem="HEY-Gg-vKB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cMQ-xv-QHW"/>
-                            <constraint firstItem="Yuj-tC-B75" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eeM-RY-Gtz"/>
+                            <constraint firstItem="pOQ-Tl-zX6" firstAttribute="top" secondItem="dm5-iX-Sc8" secondAttribute="bottom" constant="74" id="gna-ct-FdX"/>
                             <constraint firstItem="HEY-Gg-vKB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="jJh-1i-0eq"/>
                             <constraint firstItem="yUS-KE-t6D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kTe-Ub-PIl"/>
-                            <constraint firstItem="dm5-iX-Sc8" firstAttribute="top" secondItem="bcK-EE-wNL" secondAttribute="bottom" constant="109" id="mAP-hA-4Bl"/>
-                            <constraint firstItem="bcK-EE-wNL" firstAttribute="top" secondItem="Yuj-tC-B75" secondAttribute="top" constant="146" id="ncl-ov-dPx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A1n-Co-WnE" secondAttribute="trailing" id="nx4-R8-PZU"/>
-                            <constraint firstItem="bcK-EE-wNL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="xHO-dW-4ln"/>
+                            <constraint firstItem="pOQ-Tl-zX6" firstAttribute="height" secondItem="dm5-iX-Sc8" secondAttribute="height" id="txv-U1-Rfe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -108,5 +95,6 @@
     </scenes>
     <resources>
         <image name="icon1024" width="1024" height="1024"/>
+        <image name="microphone" width="626" height="626"/>
     </resources>
 </document>

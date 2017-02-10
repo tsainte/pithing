@@ -13,6 +13,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NetworkAPI *api;
+@property (nonatomic, strong) NSString *hash;
 
 @end
 
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     
     self.api = [NetworkAPI new];
+    self.hash = [[UIDevice currentDevice] name];
     [self refreshIPButtonTitle];
 }
 
@@ -70,7 +72,7 @@
                                 
                                 if (success) {
                                     
-                                    [self.api postSuccessFingerprintWithHash:[[UIDevice currentDevice] name] success:^(id object) {
+                                    [self.api postSuccessFingerprintWithHash:self.hash success:^(id object) {
                                         [self alertMessage:@"Door open 👯"];
                                     } failure:^(NSError *error) {
                                         [self alertMessage:@"Door not open: we don't know who you are 😤"];
@@ -89,6 +91,13 @@
     }
 }
 
+- (IBAction)microphoneTapped:(id)sender {
+//    
+//    [self.api postSuccessVoiceWithHash:self.hash success:^(id object) {
+//        
+//    } failure:];
+}
+
 #pragma mark - UI helpers
 
 - (void)alertMessage:(NSString*)message {
@@ -104,5 +113,6 @@
     
     [self.ipButton setTitle:[IPHandler IP] forState:UIControlStateNormal];
 }
+
 
 @end

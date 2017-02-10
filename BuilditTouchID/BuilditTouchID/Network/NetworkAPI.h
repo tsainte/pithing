@@ -15,8 +15,12 @@ typedef void(^failureResponse)(NSError *error);
 
 @interface NetworkAPI : NSObject
 
+#pragma mark - fingerprint
 - (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure;
-
 - (void)postFailureFingerprintWithSuccess:(successResponse)success failure:(failureResponse)failure;
+
+#pragma mark - voice
+- (void)postSuccessVoiceWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure;
+- (void)postFailureVoiceWithSuccess:(successResponse)success failure:(failureResponse)failure;
 
 @end
