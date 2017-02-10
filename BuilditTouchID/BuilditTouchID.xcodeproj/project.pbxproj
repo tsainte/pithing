@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D09573F838C9FE79B766251 /* libPods-BuilditTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA211FF1CF05FF8966CF7A7 /* libPods-BuilditTouchID.a */; };
 		B9D5DAAB1E4DDDE300298A2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5DAAA1E4DDDE300298A2E /* main.m */; };
 		B9D5DAAE1E4DDDE300298A2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5DAAD1E4DDDE300298A2E /* AppDelegate.m */; };
 		B9D5DAB11E4DDDE300298A2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D5DAB01E4DDDE300298A2E /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27D886E04401D2601C4989E6 /* Pods-BuilditTouchID.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuilditTouchID.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuilditTouchID/Pods-BuilditTouchID.debug.xcconfig"; sourceTree = "<group>"; };
+		6CA211FF1CF05FF8966CF7A7 /* libPods-BuilditTouchID.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuilditTouchID.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D5DAA61E4DDDE300298A2E /* BuilditTouchID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuilditTouchID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D5DAAA1E4DDDE300298A2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9D5DAAC1E4DDDE300298A2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		B9D5DAB51E4DDDE300298A2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9D5DAB81E4DDDE300298A2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9D5DABA1E4DDDE300298A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuilditTouchID.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuilditTouchID/Pods-BuilditTouchID.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D09573F838C9FE79B766251 /* libPods-BuilditTouchID.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45B3391BDADB87322026A509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CA211FF1CF05FF8966CF7A7 /* libPods-BuilditTouchID.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C70295D0CA0917F9AF3E60D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27D886E04401D2601C4989E6 /* Pods-BuilditTouchID.debug.xcconfig */,
+				FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B9D5DA9D1E4DDDE300298A2E = {
 			isa = PBXGroup;
 			children = (
 				B9D5DAA81E4DDDE300298A2E /* BuilditTouchID */,
 				B9D5DAA71E4DDDE300298A2E /* Products */,
+				8C70295D0CA0917F9AF3E60D /* Pods */,
+				45B3391BDADB87322026A509 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9D5DABD1E4DDDE300298A2E /* Build configuration list for PBXNativeTarget "BuilditTouchID" */;
 			buildPhases = (
+				60E64D34501507B9AE8865F9 /* [CP] Check Pods Manifest.lock */,
 				B9D5DAA21E4DDDE300298A2E /* Sources */,
 				B9D5DAA31E4DDDE300298A2E /* Frameworks */,
 				B9D5DAA41E4DDDE300298A2E /* Resources */,
+				217A4A886A299E1DF6DA59D1 /* [CP] Embed Pods Frameworks */,
+				CD915D0C2541A010F6D08A83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		217A4A886A299E1DF6DA59D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BuilditTouchID/Pods-BuilditTouchID-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60E64D34501507B9AE8865F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD915D0C2541A010F6D08A83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BuilditTouchID/Pods-BuilditTouchID-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B9D5DAA21E4DDDE300298A2E /* Sources */ = {
@@ -270,6 +345,7 @@
 		};
 		B9D5DABE1E4DDDE300298A2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27D886E04401D2601C4989E6 /* Pods-BuilditTouchID.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
@@ -281,6 +357,7 @@
 		};
 		B9D5DABF1E4DDDE300298A2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE85FDF529870C1A6FC77A06 /* Pods-BuilditTouchID.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BuilditTouchID/Info.plist;
