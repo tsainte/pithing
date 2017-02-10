@@ -11,6 +11,11 @@
 typedef void(^successResponse)(id object);
 typedef void(^failureResponse)(NSError *error);
 
+
 @interface NetworkAPI : NSObject
+
+- (void)postSuccessFingerprintWithHash:(NSString *)hash success:(successResponse)success failure:(failureResponse)failure;
+
+- (void)postFailureFingerprintWithSuccess:(successResponse)success failure:(failureResponse)failure;
 
 @end
